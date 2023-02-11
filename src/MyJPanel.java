@@ -9,11 +9,11 @@ public class MyJPanel extends javax.swing.JPanel{
     public JTextField textField1;
     public static String JText;    // текст из поля ввода
     public BookTableModel bookTableModel;
-//    Timer timer;
+    public JTable table1;
 
     public void init(){
 
-        setBackground(Color.BLACK);
+        setBackground(Color.LIGHT_GRAY);
         setSize(900, 600);
         setLayout(new FlowLayout());
 
@@ -25,7 +25,7 @@ public class MyJPanel extends javax.swing.JPanel{
         add(textField1);
 
         bookTableModel = new BookTableModel();
-        JTable table1 = new JTable(bookTableModel);
+        table1 = new JTable(bookTableModel);
         JScrollPane jScrollPaneTable1 = new JScrollPane(table1);
         jScrollPaneTable1.setPreferredSize(new Dimension(850, 500));
         add(jScrollPaneTable1);
@@ -43,8 +43,8 @@ public class MyJPanel extends javax.swing.JPanel{
             } catch (InterruptedException | IOException ex) {
                 throw new RuntimeException(ex);
             }
-//            timer.start();
             tableAdd();
+            table1.updateUI();
         }
 
 
